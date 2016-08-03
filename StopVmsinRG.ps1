@@ -23,7 +23,7 @@ workflow StopVmsinRG
         Write-Output "No VMs were found in your subscription."
     } else {
 		Foreach -parallel ($VM in $VMs) {
-			$status = Get-AzureRmVM -Status -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+			$status = Get-AzureRmVM -Status -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name
 			if ( ($status.Statuses | ? { $_.Code -eq 'PowerState/running' }).Count -gt 0) {
     			# VM is running, so turn it off
 		        Write-Output "Stopping " + $VM.Name
