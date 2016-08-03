@@ -29,6 +29,7 @@ workflow StopVmsinRG
     }
     Write-Output "DONE."
 
+	# TODO put the AuthKey in KeyVault
 	$Body = '{
 	    "AuthorizationToken": "326986d2fcb24b8fba42afca1d4c6607",
 	    "Title": "StopVMs '+$ResourceGroupName+'",
