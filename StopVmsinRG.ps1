@@ -30,8 +30,9 @@ workflow StopVmsinRG
     Write-Output "DONE."
 
 	# TODO put the AuthKey in KeyVault
+	$pushKey = Get-AutomationVariable -Name 'PushALotAuthKey'
 	$Body = '{
-	    "AuthorizationToken": "326986d2fcb24b8fba42afca1d4c6607",
+	    "AuthorizationToken": "'+$pushKey+'",
 	    "Title": "StopVMs '+$ResourceGroupName+'",
 	    "IsImportant": "True",
 	    "Body": "Stop VMs in ResourceGroupName matching '+$ResourceGroupName+'",
